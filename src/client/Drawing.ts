@@ -35,7 +35,13 @@ class Drawing {
     const images = new Map()
     for (const [key, filename] of Constants.DRAWING_IMG_KEY_TO_ASSET) {
       const img = new Image()
-      img.src = `${Constants.DRAWING_IMG_BASE_PATH}/${filename}`
+      
+      let imagePath = `${Constants.DRAWING_IMG_BASE_PATH}/${filename}`
+      if (imagePath.startsWith('/')) {
+        imagePath = imagePath.substring(1)
+      }
+      
+      img.src = imagePath
       images.set(key, img)
     }
     return new Drawing(context, images, viewport)
