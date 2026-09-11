@@ -39,7 +39,11 @@ class Chat {
    * Event handler for a key down event on the input chat element.
    */
   onInputKeyDown(event: KeyboardEvent) {
-    if (event.code === 'Enter') {
+      if (
+          event.key === 'Enter' ||
+          event.code === 'Enter' ||
+          event.keyCode === 13
+      ) {
       const text = this.inputElement.value
       this.inputElement.value = ''
       this.socket.emit(Constants.SOCKET.CHAT_CLIENT_SERVER, text)
