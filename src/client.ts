@@ -6,7 +6,8 @@ import Game from './client/Game'
 
 window.onload = (): void => {
   const socket = socketIO.io({
-    parser: socketIOParser,
+      parser: socketIOParser,
+      path: '/rogoz/socket.io',
   })
   const game = Game.create(socket, 'canvas', 'leaderboard')
   Chat.create(socket, 'chat-display', 'chat-input')
