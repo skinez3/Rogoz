@@ -18,7 +18,7 @@ window.onload = (): void => {
 
   const sendName = (): boolean => {
     const name = nameInputElement.value
-    document.getElementById('name-prompt-container')!.innerHTML = ''
+    //document.getElementById('name-prompt-container')!.innerHTML = ''
     if (name && name.length < 20) {
       socket.emit(Constants.SOCKET.NEW_PLAYER, name, () => {
         document.getElementById('name-prompt-overlay')!.remove()
